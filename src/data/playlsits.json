@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "playListName": "From Zero - Linkin Park",
+        "tags": ["rock", "alternative", "nu-metal"],
+        "musics": [
+            {
+                "title": "The Emptiness Machine",
+                "year": 2024,
+                "artist": "Linkin Park",
+                "album": "From Zero"
+            },
+            {
+                "title": "Broken Circuits",
+                "year": 2024,
+                "artist": "Linkin Park",
+                "album": "From Zero"
+            },
+            {
+                "title": "Rebooted Dreams",
+                "year": 2024,
+                "artist": "Linkin Park",
+                "album": "From Zero"
+            }
+        ]
+    }
+]
