@@ -9,6 +9,7 @@ app.get('/', (req, res) =>{
     res.json({message: 'Welcome to Playlist API'})
 })
 app.get('/playlists', playLists.index)
+app.get('/playlists/:id', playLists.show)
 
 const PORT = 3000
 app.listen(PORT, () => console.log(`Servidor iniciado em http://localhost:${PORT}/`))
