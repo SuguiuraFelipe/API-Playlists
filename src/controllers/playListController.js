@@ -52,6 +52,43 @@ module.exports = {
         res.json(playLists[playListIndex])
     },
 
+    // PUT /playlists/:id/musics/:title
+    updateMusic: (req, res) => {
+        const { id, title } = req.params; // Pegamos o ID da playlist e o título da música da URL
+        const { newTitle, year, artist, album } = req.body; // Dados para atualizar a música
+
+        // Encontrar o índice da playlist pelo ID
+        const playListIndex = playLists.findIndex(playList => playList.id === +id);
+
+        // Se a playlist não for encontrada
+        if (playListIndex === -1) {
+            return res.status(404).json({ message: 'Playlist not found!' });
+        }
+
+        // Buscar a música pelo título dentro da playlist
+        const musicIndex = playLists[playListIndex].musics.findIndex(
+            music => music.title.toLowerCase() === title.toLowerCase()
+        );
+
+        // Se a música não for encontrada
+        if (musicIndex === -1) {
+            return res.status(404).json({ message: 'Music not found!' });
+        }
+
+        // Atualizar os campos da música
+        playLists[playListIndex].musics[musicIndex] = {
+            ...playLists[playListIndex].musics[musicIndex], // Mantém os campos existentes
+            title: newTitle || playLists[playListIndex].musics[musicIndex].title, // Atualiza o título, se fornecido
+            year: year || playLists[playListIndex].musics[musicIndex].year, // Atualiza o ano, se fornecido
+            artist: artist || playLists[playListIndex].musics[musicIndex].artist, // Atualiza o artista, se fornecido
+            album: album || playLists[playListIndex].musics[musicIndex].album // Atualiza o álbum, se fornecido
+        };
+
+        // Retornar a música atualizada
+        res.json(playLists[playListIndex].musics[musicIndex]);
+    },
+
+
     // DELETE /playlists/:id
     delete: (req, res) =>{
         const {id} = req.params

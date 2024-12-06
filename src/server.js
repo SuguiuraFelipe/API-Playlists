@@ -14,6 +14,7 @@ app.get('/playlists/:id', playLists.show)
 app.post('/playlists', playLists.save)
 
 app.put('/playlists/:id', playLists.update)
+app.put('/playlists/:id/musics/:title', playLists.updateMusic)
 
 app.delete('/playlists/:id', playLists.delete)
 
