@@ -33,5 +33,22 @@ module.exports = {
         playLists.push(newPlayList)
         res.status(201)
         res.json(newPlayList)
+    },
+
+    // PUT /playlists/:id
+    update: (req, res) =>{
+        const {id} = req.params
+        const {playListName, tags} = req.body
+
+        const playListIndex = playLists.findIndex(playList => playList.id === +id)
+
+        if(playListIndex === -1){
+            return req.status(404).json({message: 'Playlist not found!'})
+        }
+
+        playLists[playListIndex].playListName = playListName
+        playLists[playListIndex].tags = tags
+
+        res.json(playLists[playListIndex])
     }
 }
