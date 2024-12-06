@@ -15,5 +15,7 @@ app.post('/playlists', playLists.save)
 
 app.put('/playlists/:id', playLists.update)
 
+app.delete('/playlists/:id', playLists.delete)
+
 const PORT = 3000
 app.listen(PORT, () => console.log(`Servidor iniciado em http://localhost:${PORT}/`))

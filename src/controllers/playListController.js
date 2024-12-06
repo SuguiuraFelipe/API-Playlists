@@ -50,5 +50,18 @@ module.exports = {
         playLists[playListIndex].tags = tags
 
         res.json(playLists[playListIndex])
+    },
+
+    // DELETE /playlists/:id
+    delete: (req, res) =>{
+        const {id} = req.params
+        const playListIndex = playLists.findIndex(playList => playList.id === +id)
+
+        if(playListIndex === -1){
+            return res.status(404).json({message: 'Playlist not found!'})
+        }
+
+        playLists.splice(playListIndex, 1)
+        res.status(204).end()
     }
 }
