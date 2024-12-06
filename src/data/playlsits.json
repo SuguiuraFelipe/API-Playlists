@@ -23,5 +23,25 @@
                 "album": "From Zero"
             }
         ]
+    },
+    {
+        "id": 2,
+        "playListName": "Chill Vibes",
+        "tags": ["lofi", "instrumental", "chill"],
+        "musics": [
+            {
+                "title": "Evening Breeze",
+                "year": 2023,
+                "artist": "Lofi Beats",
+                "album": "Calm Nights"
+            },
+            {
+                "title": "Ocean Eyes",
+                "year": 2023,
+                "artist": "Billie Eilish",
+                "album": "Ocean Dreams"
+            }
+        ]
     }
+    
 ]

@@ -11,5 +11,7 @@ app.get('/', (req, res) =>{
 app.get('/playlists', playLists.index)
 app.get('/playlists/:id', playLists.show)
 
+app.post('/playlists', playLists.save)
+
 const PORT = 3000
 app.listen(PORT, () => console.log(`Servidor iniciado em http://localhost:${PORT}/`))
