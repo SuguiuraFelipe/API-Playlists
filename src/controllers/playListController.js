@@ -27,7 +27,7 @@ module.exports = {
             id: Math.floor(Math.random() * 99999),
             playListName,
             tags,
-            musics
+            musics: musics ?? [],
         }
 
         playLists.push(newPlayList)
